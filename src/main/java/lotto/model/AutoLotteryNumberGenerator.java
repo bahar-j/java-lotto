@@ -4,10 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class AutoLotteryNumberGenerator implements LotteryNumberGenerator {
+import static lotto.constant.LotteryConstant.*;
 
-    private static final Integer RANDOM_MAX = 43;
-    private static final int NUMBER_PER_TICKET = 6;
+public class AutoLotteryNumberGenerator implements LotteryNumberGenerator {
     private static final ThreadLocalRandom random = ThreadLocalRandom.current();
 
     @Override
@@ -21,8 +20,8 @@ public class AutoLotteryNumberGenerator implements LotteryNumberGenerator {
     }
 
     private int generateOne() {
-        int randomNumber = random.nextInt(RANDOM_MAX) + 1;
-        if (randomNumber > RANDOM_MAX) {
+        int randomNumber = random.nextInt(LOTTERY_MAX) + LOTTERY_MIN;
+        if (randomNumber > LOTTERY_MAX) {
             throw new RuntimeException("랜덤값 경계를 벗어났습니다.");
         }
         return randomNumber;

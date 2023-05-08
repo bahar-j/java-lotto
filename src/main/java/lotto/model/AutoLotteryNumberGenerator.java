@@ -20,7 +20,7 @@ public class AutoLotteryNumberGenerator implements LotteryNumberGenerator {
         return numbers;
     }
 
-    private static int generateOne() {
+    private int generateOne() {
         int randomNumber = random.nextInt(RANDOM_MAX) + 1;
         if (randomNumber > RANDOM_MAX) {
             throw new RuntimeException("랜덤값 경계를 벗어났습니다.");

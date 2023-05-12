@@ -10,14 +10,22 @@ public enum Win {
     WIN_3(3, 5000),
     WIN_4(4, 50_000),
     WIN_5(5, 1_500_000),
+    WIN_5_BONUS(5, 30_000_000, true),
     WIN_6(6, 2_000_000_000);
 
     private int points;
     private int prize;
+    private boolean hitBonus;
 
     Win(int points, int prize) {
         this.points = points;
         this.prize = prize;
+    }
+
+    Win(int points, int prize, boolean hitBonus) {
+        this.points = points;
+        this.prize = prize;
+        this.hitBonus = hitBonus;
     }
 
     public static Map<Win, Integer> convertToWinMap(Map<Integer, Integer> map) {

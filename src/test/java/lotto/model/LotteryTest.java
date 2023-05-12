@@ -76,4 +76,17 @@ public class LotteryTest {
         assertThat(Win.calculateProfitRate(income, outcome)).isEqualTo("0.35");
     }
 
+    @Test
+    void 이등_당첨() {
+        WinNumbers winNumbers = new WinNumbers(List.of(1, 2, 3, 4, 5, 6), 7);
+        LotteryTicket lotteryTicket = new LotteryTicket(Set.of(
+                LotteryNumber.of(1),
+                LotteryNumber.of(2),
+                LotteryNumber.of(3),
+                LotteryNumber.of(4),
+                LotteryNumber.of(5),
+                LotteryNumber.of(7)));
+        assertThat(lotteryTicket.compare(winNumbers)).isEqualTo(Win.WIN_5_BONUS);
+    }
+
 }

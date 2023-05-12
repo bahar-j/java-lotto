@@ -7,7 +7,7 @@ import static lotto.constant.LotteryConstant.LOTTERY_MIN;
 
 public class WinNumbers {
 
-    private List<Integer> numbers;
+    private final List<Integer> numbers;
     private int bonusNumber;
 
     protected WinNumbers(List<Integer> numbers) {
